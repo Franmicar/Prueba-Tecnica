@@ -1,0 +1,25 @@
+<div id="close">
+  <button mat-icon-button color="primary" aria-label="Cerrar" (click)="dialog.close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<h1>Añadir tarea</h1>
+
+<form [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Titulo</mat-label>
+      <input matInput formControlName="titulo">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="descripcion"></textarea>
+    </mat-form-field>
+  </p>
+
+  <button type="submit" [disabled]="!tareaForm.valid" (click)="dialog.close()">Añadir</button>
+  <button (click)="dialog.close()">Cancelar</button>
+</form>
