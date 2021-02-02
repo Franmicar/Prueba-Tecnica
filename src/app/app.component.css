@@ -1,0 +1,29 @@
+mat-sidenav-container{
+  height: 100%;
+}
+
+mat-sidenav{
+  padding: 16px;
+}
+
+mat-sidenav{
+  height: 100%;
+  width: 40%;
+}
+
+#content{
+  margin-left: 20px;
+}
+
+table{
+  width: 100%;
+}
+
+tr > td{
+  text-align: start;
+}
+
+tr > td:last-child{
+  text-align: end;
+}
+
