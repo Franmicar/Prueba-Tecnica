@@ -11,8 +11,24 @@ mat-sidenav{
   width: 40%;
 }
 
+mat-card{
+  margin-top: 20px;
+}
+
+mat-card-title{
+  display: inline-flex;
+  width: 100%;
+}
+
+mat-card-title > button{
+  width: min-content;
+  margin-left: auto;
+}
+
+
 #content{
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 table{

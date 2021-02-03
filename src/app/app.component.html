@@ -45,7 +45,11 @@
 
       <mat-card>
 
-        <mat-card-title>Tabla de tareas</mat-card-title>
+        <mat-card-title>Tabla de tareas
+          <button mat-menu-item (click)="loadTareas()">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </mat-card-title>
 
         <mat-card-content>
           <table mat-table [dataSource]="tareas" class="mat-elevation-z8">
