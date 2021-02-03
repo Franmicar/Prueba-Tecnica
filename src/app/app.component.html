@@ -6,7 +6,7 @@
       <mat-list-item role="listitem">
         <mat-form-field appearance="fill">
           <mat-label>Idioma</mat-label>
-          <mat-select>
+          <mat-select value={{idiomas[0]}}>
             <mat-option *ngFor="let string of idiomas" [value]="string">
               {{string}}
             </mat-option>
@@ -43,7 +43,7 @@
 
       <button mat-raised-button color="primary" (click)="openAdd()">
         <mat-icon>add</mat-icon>
-        Añadir usuario
+        Añadir tarea
       </button>
 
       <mat-card>
