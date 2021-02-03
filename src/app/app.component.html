@@ -1,3 +1,4 @@
+<!-- Menu lateral -->
 <mat-sidenav-container>
   <mat-sidenav mode="push" [(opened)]="opened">
     <mat-list role="list">
@@ -20,7 +21,9 @@
     </mat-list>
   </mat-sidenav>
 
+  <!-- Contenido -->
   <mat-sidenav-content>
+
     <header>
       <mat-toolbar color="primary">
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
@@ -45,7 +48,11 @@
 
       <mat-card>
 
-        <mat-card-title>Tabla de tareas</mat-card-title>
+        <mat-card-title>Tabla de tareas
+          <button mat-menu-item (click)="loadTareas()">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </mat-card-title>
 
         <mat-card-content>
           <table mat-table [dataSource]="tareas" class="mat-elevation-z8">
