@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AppComponent } from '../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,40 +19,4 @@ export class DialogService {
     });
   }
 
-/*
-  openAdd(): void {
-    let dialogRef = this.dialog.open(AddComponent, {
-      height: '400px',
-      width: '600px',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("Modal cerrado");
-    });
-
-  }
-
-  openEdit(): void {
-    let dialogRef = this.dialog.open(EditComponent, {
-      height: '400px',
-      width: '600px',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("Modal cerrado");
-    });
-
-  }
-
-  openDel(): void {
-    let dialogRef = this.dialog.open(DeleteComponent, {
-      height: '400px',
-      width: '600px',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("Modal cerrado");
-    });
-  }
-*/
-  close(){
-    this.dialog.closeAll();
-  }
 }

@@ -33,6 +33,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ProgressBarService } from './services/progress-bar.service';
+import { SnackBarService } from './services/snack-bar.service';
+import { SpinnerService } from './services/spinner.service';
 
 @NgModule({
   declarations: [
@@ -64,12 +70,18 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSidenavModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
     TareaService,
-    DialogService
+    DialogService,
+    ProgressBarService,
+    SnackBarService,
+    SpinnerService
   ],
   bootstrap: [AppComponent]
 })

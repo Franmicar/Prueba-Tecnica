@@ -1,13 +1,16 @@
-<div id="close">
-  <button mat-icon-button color="primary" aria-label="Cerrar" (click)="ds.close()">
+<mat-toolbar color="warn">
+  <h2 mat-dialog-title>Elimnar tarea</h2>
+  <button mat-icon-button mat-dialog-close class="example-icon">
     <mat-icon>close</mat-icon>
   </button>
-</div>
+</mat-toolbar>
 
-<h1>Eliminar tarea</h1>
+<mat-dialog-content>
+  <mat-icon>report_problem</mat-icon>
+  <span>Esta acción no puede deshacerse</span>
+</mat-dialog-content>
 
-<h3>Esta acción no puede deshacerse</h3>
-
-
-<button (click)="delete()">Eliminar</button>
-<button (click)="ds.close()">Cancelar</button>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">Borrar</button>
+</mat-dialog-actions>

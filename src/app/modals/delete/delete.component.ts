@@ -19,8 +19,11 @@ export class DeleteComponent implements OnInit {
   }
 
   delete(){
-    this.ts.deleteTarea(this.data.item.id).then();
-    this.ds.close();
+    this.ts.deleteTarea(this.data.item.id).then( resultado =>{
+      console.log("Tarea eliminada")
+    }).catch(err =>{
+      console.log(err);
+    });
   }
 
 }

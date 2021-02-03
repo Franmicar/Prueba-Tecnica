@@ -1,6 +1,13 @@
-#close{
-  text-align: right;
+mat-toolbar > span{
+  text-align: end;
+
 }
+
+p{
+  margin-bottom: 35px;
+  margin-left: 15px;
+}
+
 
 input{
   width: 100%;

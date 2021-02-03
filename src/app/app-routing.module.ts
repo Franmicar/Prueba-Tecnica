@@ -9,7 +9,7 @@ const routes: Routes = [
     path: 'home', loadChildren: () => import('./app.module').then(m => m.AppModule),
   },
   {
-    path: '**', redirectTo: ''
+    path: '**', redirectTo: '/home'
   },
 ];
 @NgModule({

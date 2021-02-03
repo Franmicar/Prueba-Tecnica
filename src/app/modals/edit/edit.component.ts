@@ -43,7 +43,11 @@ export class EditComponent implements OnInit {
 
   onSubmit(){
     this.tarea = this.saveTarea();
-    this.tareaService.updateTarea(this.data.item.id, this.tarea);
+    this.tareaService.updateTarea(this.data.item.id, this.tarea).then( resultado =>{
+      console.log("Tarea editada")
+    }).catch(err =>{
+      console.log(err);
+    });
   }
 
 }
