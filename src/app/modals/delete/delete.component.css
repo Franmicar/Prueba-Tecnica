@@ -1,5 +1,17 @@
-#close{
-  text-align: right;
+h2{
+  padding: 24px;
+}
+
+mat-dialog-content{
+  padding: 24px;
+}
+
+mat-dialog-actions{
+  padding: 24px;
 }
 
 
+.example-icon{
+  position: absolute;
+  right: 30px;
+}

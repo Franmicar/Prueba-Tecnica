@@ -1,14 +1,25 @@
-mat-toolbar > span{
-  text-align: end;
-
+h2{
+  padding: 24px;
 }
 
 p{
   margin-bottom: 35px;
-  margin-left: 15px;
+  margin-left: 35px;
 }
 
+.example-icon{
+  position: absolute;
+  right: 30px;
+}
 
-input{
-  width: 100%;
+mat-dialog-content{
+  padding: 24px;
+}
+
+p *{
+  width: 500px;
+}
+
+mat-dialog-actions{
+  padding: 24px;
 }
