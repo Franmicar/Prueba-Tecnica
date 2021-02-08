@@ -6,11 +6,11 @@
 </mat-toolbar>
 
 <mat-dialog-content>
-  <mat-icon>report_problem</mat-icon>
+  <mat-icon id="warning">report_problem</mat-icon>
   <span>Esta acción no puede deshacerse</span>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="warn" [mat-dialog-close]="true">Borrar</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true" (click)="delete()">Borrar</button>
 </mat-dialog-actions>

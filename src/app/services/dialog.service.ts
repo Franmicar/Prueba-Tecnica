@@ -8,10 +8,10 @@ export class DialogService {
 
   constructor(public dialog: MatDialog) { }
 
-  open(component:any,item?:any):void{
+  open(component:any,item?:any,h:number=450,w:number=700):void{
     let dialogRef = this.dialog.open(component, {
-      height: '400px',
-      width: '600px',
+      height: h+'px',
+      width: w+'px',
       data: {item}
     });
     dialogRef.afterClosed().subscribe(result => {

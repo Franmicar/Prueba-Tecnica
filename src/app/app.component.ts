@@ -52,7 +52,7 @@ export class AppComponent implements OnInit{
   }
 
   openDel(item:any){
-    this.dialog.open(DeleteComponent, item)
+    this.dialog.open(DeleteComponent, item, 280, 700)
   }
 
 

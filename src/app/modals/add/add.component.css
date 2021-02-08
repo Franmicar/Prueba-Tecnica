@@ -16,8 +16,12 @@ mat-dialog-content{
   padding: 24px;
 }
 
-p *{
-  width: 500px;
+mat-dialog-content *{
+  width: 90%;
+}
+
+#description{
+  height: 50px !important;
 }
 
 mat-dialog-actions{

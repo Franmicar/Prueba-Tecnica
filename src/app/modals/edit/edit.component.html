@@ -5,35 +5,38 @@
   </button>
 </mat-toolbar>
 
-<mat-dialog-content>
-  <form [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
-    <p>
-      <mat-form-field class="example-full-width">
-        <mat-label>Título</mat-label>
-        <input type="text" matInput formControlName="titulo" placeholder="">
-        <mat-hint>El titulo debe de tener un caracter mínimo</mat-hint>
-        <mat-error *ngIf="tareaForm.controls.titulo.invalid
+
+<form [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Título</mat-label>
+      <input type="text" matInput formControlName="titulo" placeholder="">
+      <mat-hint>El titulo debe de tener un caracter mínimo</mat-hint>
+      <mat-error *ngIf="tareaForm.controls.titulo.invalid
        && tareaForm.controls.titulo.touched">
-          Por favor introduce un titulo válido
-        </mat-error>
-        <mat-error *ngIf="tareaForm.controls.titulo.invalid">
-          Titulo es <strong>requerido</strong>
-        </mat-error>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field class="example-full-width">
-        <mat-label>Descripción</mat-label>
-        <input type="text" matInput formControlName="descripcion" placeholder="">
-        <mat-hint>La descripcion no puede superar los 50 caracteres</mat-hint>
-        <mat-error *ngIf="tareaForm.controls.descripcion.invalid">
-          Se han superado los 50 caracteres
-        </mat-error>
-      </mat-form-field>
-    </p>
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="accent" type="submit" [disabled]="!tareaForm.valid" [mat-dialog-close]="true">Editar</button>
-</mat-dialog-actions>
+        Por favor introduce un titulo válido
+      </mat-error>
+      <mat-error *ngIf="tareaForm.controls.titulo.invalid">
+        Titulo es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripción</mat-label>
+      <input type="text" matInput formControlName="descripcion" placeholder="" id=description>
+      <mat-hint>La descripcion no puede superar los 50 caracteres</mat-hint>
+      <mat-error *ngIf="tareaForm.controls.descripcion.invalid">
+        Se han superado los 50 caracteres
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="accent" type="submit" [disabled]="!tareaForm.valid"
+      [mat-dialog-close]="true">Editar</button>
+  </mat-dialog-actions>
+</form>

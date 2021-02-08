@@ -35,8 +35,6 @@
       </mat-toolbar>
     </header>
 
-
-
     <div id=content>
 
       <p><b>Sección</b> > {{ seccion }}</p>
@@ -59,7 +57,7 @@
             <!-- Columna de tareas -->
             <ng-container matColumnDef="tarea">
               <td mat-cell *matCellDef="let tarea">
-                <p>{{ tarea.titulo }}</p>
+                <p><b>{{ tarea.titulo }}</b></p>
                 <p>{{ tarea.descripcion }}</p>
               </td>
             </ng-container>

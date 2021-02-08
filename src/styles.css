@@ -7,4 +7,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-dialog-container{
   position: relative;
   padding: 0px !important;
+  overflow: inherit !important;
 }
