@@ -4,9 +4,6 @@ mat-sidenav-container{
 
 mat-sidenav{
   padding: 16px;
-}
-
-mat-sidenav{
   height: 100%;
   width: 40%;
 }
