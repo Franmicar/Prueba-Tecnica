@@ -25,10 +25,10 @@
     <p>
       <mat-form-field class="example-full-width">
         <mat-label>Descripción</mat-label>
-        <input type="text" matInput formControlName="descripcion" placeholder="" id=description>
-        <mat-hint>La descripcion no puede superar los 50 caracteres</mat-hint>
+        <textarea type="text" matInput formControlName="descripcion" placeholder="" id=description></textarea>
+        <mat-hint>La descripcion no puede superar los 100 caracteres</mat-hint>
         <mat-error *ngIf="tareaForm.controls.descripcion.invalid">
-          Se han superado los 50 caracteres
+          Se han superado los 100 caracteres
         </mat-error>
       </mat-form-field>
     </p>

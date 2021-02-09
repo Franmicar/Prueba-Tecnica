@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { AddComponent } from './modals/add/add.component';
 import { DeleteComponent } from './modals/delete/delete.component';
 import { EditComponent } from './modals/edit/edit.component';
 
 import { Tarea } from './models/Tarea';
 import { DialogService } from './services/dialog.service';
+import { SpinnerService } from './services/spinner.service';
 import { TareaService } from './services/tarea.service';
 
 @Component({
@@ -23,14 +23,16 @@ export class AppComponent implements OnInit{
   columnsToDisplay = ['tarea', 'menu'];
 
   constructor(public dialog:DialogService,
-    public ts:TareaService) {}
+    public ts:TareaService,
+    public spinner:SpinnerService) {}
 
   ngOnInit(){
     this.loadTareas();
   }
 
-  loadTareas(){
+  loadTareas():void{
     try{
+      this.spinner.loadData();
       this.ts.getTareas2().subscribe((lista)=>{
         this.tareas = lista;
       },
@@ -43,16 +45,20 @@ export class AppComponent implements OnInit{
     console.log("Tareas cargadas");
   }
 
-  openAdd(){
-    this.dialog.open(AddComponent);
+  NTareas():number{
+   return this.tareas.length;
   }
 
-  openEdit(item:any){
-    this.dialog.open(EditComponent, item);
+  openAdd():void{
+    this.dialog.open(AddComponent,this);
   }
 
-  openDel(item:any){
-    this.dialog.open(DeleteComponent, item, 280, 700)
+  openEdit(item:any):void{
+    this.dialog.open(EditComponent,this, item);
+  }
+
+  openDel(item:any):void{
+    this.dialog.open(DeleteComponent,this, item, 280, 700);
   }
 
 

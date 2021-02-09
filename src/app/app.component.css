@@ -1,43 +1,54 @@
-mat-sidenav-container{
+mat-sidenav-container {
   height: 100%;
 }
 
-mat-sidenav{
+mat-sidenav {
   padding: 16px;
   height: 100%;
-  width: 40%;
 }
 
-mat-card{
+mat-card {
   margin-top: 20px;
 }
 
-mat-card-title{
+mat-card-title {
   display: inline-flex;
   width: 100%;
 }
 
-mat-card-title > button{
+mat-card-title > button {
   width: min-content;
   margin-left: auto;
 }
 
+mat-card-content {
+  position: relative;
+}
 
-#content{
+mat-spinner {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#content {
   margin-left: 20px;
   margin-right: 20px;
 }
 
-table{
+table {
   width: 100%;
 }
 
-tr > td{
+tr > td {
   text-align: start;
+  max-width: 200px;
+  overflow-wrap: break-word;
 }
 
-tr > td:last-child{
+tr > td:last-child {
   text-align: end;
 }
-
-

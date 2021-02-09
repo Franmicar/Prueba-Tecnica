@@ -53,6 +53,9 @@
         </mat-card-title>
 
         <mat-card-content>
+
+          <mat-spinner *ngIf=spinner.showSpinner></mat-spinner>
+
           <table mat-table [dataSource]="tareas" class="mat-elevation-z8">
             <!-- Columna de tareas -->
             <ng-container matColumnDef="tarea">

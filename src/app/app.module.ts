@@ -13,6 +13,9 @@ import { DeleteComponent } from './modals/delete/delete.component';
 //Servicios
 import { TareaService } from './services/tarea.service';
 import { DialogService } from './services/dialog.service';
+import { ProgressBarService } from './services/progress-bar.service';
+import { SnackBarService } from './services/snack-bar.service';
+import { SpinnerService } from './services/spinner.service';
 
 //Firebase (base de datos)
 import { AngularFireModule } from '@angular/fire';
@@ -36,9 +39,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ProgressBarService } from './services/progress-bar.service';
-import { SnackBarService } from './services/snack-bar.service';
-import { SpinnerService } from './services/spinner.service';
 
 @NgModule({
   declarations: [
