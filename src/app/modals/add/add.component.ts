@@ -27,7 +27,8 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     this.tareaForm = this.fb.group({
-      titulo: ['', [Validators.required, Validators.minLength(1)]],
+      titulo: ['', [Validators.required,
+        Validators.minLength(1), Validators.maxLength(30)]],
       descripcion: ['', Validators.maxLength(100)],
     });
   }

@@ -11,9 +11,9 @@ export class DialogService {
    * Metodo que crea un modal genérico con los siguientes parametros:
    * @component: Componente para abrir en el modal
    * @father: Componente donde se abre el modal
-   * @item: Tarea para eliminar o editar
-   * @h: Altura del modal
-   * @w: Ancho del modal
+   * @item: Tarea para eliminar o editar (opcional)
+   * @h: Altura del modal, por defecto 450px
+   * @w: Ancho del modal, por defecto 700px
    */
   open(component:any,father:any,item?:any,h:number=450,w:number=700):void{
     const dialogRef = this.dialog.open(component, {

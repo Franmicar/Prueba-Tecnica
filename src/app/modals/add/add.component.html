@@ -12,7 +12,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Título</mat-label>
         <input type="text" matInput formControlName="titulo" placeholder="">
-        <mat-hint>El titulo debe de tener un caracter mínimo</mat-hint>
+        <mat-hint>El titulo debe de tener entre 1 y 30 caracteres</mat-hint>
         <mat-error *ngIf="tareaForm.controls.titulo.invalid
        && tareaForm.controls.titulo.touched">
           Por favor introduce un titulo válido

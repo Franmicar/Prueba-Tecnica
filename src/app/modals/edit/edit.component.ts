@@ -29,7 +29,8 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.tareaForm = this.fb.group({
-      titulo: [this.data.item.titulo, [Validators.required, Validators.minLength(1)]],
+      titulo: [this.data.item.titulo, [Validators.required,
+        Validators.minLength(1), Validators.maxLength(30)]],
       descripcion: [this.data.item.descripcion, Validators.maxLength(100)]
     });
     console.log(this.data.item.titulo);
