@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Tarea } from 'src/app/models/Tarea';
 import { DialogService } from 'src/app/services/dialog.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
@@ -22,18 +18,24 @@ export class AddComponent implements OnInit {
     private fb: FormBuilder,
     private tareaService: TareaService,
     public dialog: DialogService,
-    public snackBar:SnackBarService
+    public snackBar: SnackBarService
   ) {}
 
   ngOnInit(): void {
     this.tareaForm = this.fb.group({
-      titulo: ['', [Validators.required,
-        Validators.minLength(1), Validators.maxLength(30)]],
+      titulo: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(30),
+        ],
+      ],
       descripcion: ['', Validators.maxLength(100)],
     });
   }
 
-  saveTarea():Tarea {
+  saveTarea(): Tarea {
     const saveTarea = {
       titulo: this.tareaForm.get('titulo').value,
       descripcion: this.tareaForm.get('descripcion').value,
@@ -41,13 +43,16 @@ export class AddComponent implements OnInit {
     return saveTarea;
   }
 
-  onSubmit():void{
+  onSubmit(): void {
     this.tarea = this.saveTarea();
-    this.tareaService.addTarea(this.tarea).then( resultado =>{
-      console.log("Tarea creada con exito")
-      this.snackBar.open("Tarea añadida correctamente","CLOSE");
-    }).catch(err =>{
-      console.log(err);
-    });
+    this.tareaService
+      .addTarea(this.tarea)
+      .then((resultado) => {
+        console.log('Tarea creada con exito');
+        this.snackBar.open('Tarea añadida correctamente', 'CLOSE');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }

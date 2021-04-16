@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: '', loadChildren: () => import('./app.module').then(m => m.AppModule),
+    path: '', component: AppComponent,
   },
   {
-    path: 'home', loadChildren: () => import('./app.module').then(m => m.AppModule),
+    path: 'home',component: AppComponent,
   },
   {
-    path: '**', loadChildren: () => import('./app.module').then(m => m.AppModule)
+    path: '**', component: AppComponent
   },
 ];
 @NgModule({

@@ -1,0 +1,11 @@
+{
+  "home": {
+    "language": "Language",
+    "dark-mode": "Dark mode",
+    "title": "Organization chart",
+    "section": "Section",
+    "todo": "ToDo",
+    "add-toDo": "Add toDo",
+    "todo-table": "ToDo Table"
+  }
+}

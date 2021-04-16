@@ -14,46 +14,45 @@ export class TareaService {
   tareas: AngularFirestoreCollection;
 
   constructor(private firestore: AngularFirestore) {
-    this.tareas = firestore.collection<any>(environment.collection);
+    this.tareas = this.firestore.collection<any>(environment.collection);
   }
 
-  getTareas() {
+  getTareas(): any {
     return this.tareas.get();
   }
 
-  getTareas2(timer:number=10000):Observable<Tarea[]>{
-    return new Observable((observer)=>{
-      let subscription:Subscription;
-      let tempo=setTimeout(()=>{
+  getTareas2(timer: number = 10000): Observable<Tarea[]> {
+    return new Observable((observer) => {
+      let subscription: Subscription;
+      const tempo = setTimeout(() => {
         subscription.unsubscribe();
-        observer.error("Timeout");
-      },timer);
-      subscription=this.getTareas().subscribe((lista)=>{
+        observer.error('Timeout');
+      }, timer);
+      subscription = this.getTareas().subscribe((lista) => {
         clearTimeout(tempo);
-        let listado=[];
-        lista.docs.forEach((tarea)=>{
-          listado.push({id:tarea.id,...tarea.data()});
+        let listado = [];
+        lista.docs.forEach((tarea) => {
+          listado.push({ id: tarea.id, ...tarea.data() });
         });
         observer.next(listado);
         observer.complete();
-      })
-    })
-
+      });
+    });
   }
 
-  getTareaById(id:string){
+  getTareaById(id: string): any {
     return this.tareas.doc(id).get();
   }
 
-  addTarea(data: Tarea) {
+  addTarea(data: Tarea): any  {
     return this.tareas.add(data);
   }
 
-  updateTarea(id:string,data:Tarea){
+  updateTarea(id: string, data: Tarea): any  {
     return this.tareas.doc(id).set(data);
   }
 
-  deleteTarea(id:string){
+  deleteTarea(id: string): any  {
     return this.tareas.doc(id).delete();
   }
 }

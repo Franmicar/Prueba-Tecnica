@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SpinnerService {
-
   showSpinner = false;
 
-  constructor() { }
+  constructor() {}
 
-  loadData(){
+  loadData() {
     this.showSpinner = true;
-    setTimeout(()=>{
-      this.showSpinner = false
+    setTimeout(() => {
+      this.showSpinner = false;
     }, 2000);
   }
-
 }

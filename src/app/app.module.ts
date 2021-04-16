@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 //Modales
 import { AddComponent } from './modals/add/add.component';
@@ -16,6 +19,7 @@ import { DialogService } from './services/dialog.service';
 import { ProgressBarService } from './services/progress-bar.service';
 import { SnackBarService } from './services/snack-bar.service';
 import { SpinnerService } from './services/spinner.service';
+import { TranslationService } from './services/translation.service';
 
 //Firebase (base de datos)
 import { AngularFireModule } from '@angular/fire';
@@ -40,12 +44,16 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
     AddComponent,
     EditComponent,
-    DeleteComponent
+    DeleteComponent,
   ],
   entryComponents: [
     AddComponent,
@@ -74,14 +82,29 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [
     TareaService,
     DialogService,
     ProgressBarService,
     SnackBarService,
-    SpinnerService
+    SpinnerService,
+    TranslationService,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass:
+    // },
+    HttpClient
+
   ],
   bootstrap: [AppComponent]
 })

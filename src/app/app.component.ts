@@ -7,59 +7,55 @@ import { Tarea } from './models/Tarea';
 import { DialogService } from './services/dialog.service';
 import { SpinnerService } from './services/spinner.service';
 import { TareaService } from './services/tarea.service';
+import { TranslationService } from './services/translation.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
-
-  title = 'Organigrama';
-  seccion = "Tareas"
-  idiomas:String[]=['Español','Inglés','Francés']
-  tareas:Tarea[]=[];
+export class AppComponent implements OnInit {
+  tareas: Tarea[] = [];
   opened = false;
   columnsToDisplay = ['tarea', 'menu'];
 
-  constructor(public dialog:DialogService,
-    public ts:TareaService,
-    public spinner:SpinnerService) {}
+  constructor(
+    public dialog: DialogService,
+    public ts: TareaService,
+    public spinner: SpinnerService,
+    public trs: TranslationService
+  ) {
+  }
 
-  ngOnInit(){
+  ngOnInit() {
     this.loadTareas();
   }
-
-  loadTareas():void{
-    try{
+  loadTareas(): void {
+    try {
       this.spinner.loadData();
-      this.ts.getTareas2().subscribe((lista)=>{
-        this.tareas = lista;
-      },
-      error =>{
-
-      });
-    }catch (err){
-
-    }
-    console.log("Tareas cargadas");
+      this.ts.getTareas2().subscribe(
+        (lista) => {
+          this.tareas = lista;
+        },
+        (error) => {}
+      );
+    } catch (err) {}
+    console.log('Tareas cargadas');
   }
 
-  NTareas():number{
-   return this.tareas.length;
+  NTareas(): number {
+    return this.tareas.length;
   }
 
-  openAdd():void{
-    this.dialog.open(AddComponent,this);
+  openAdd(): void {
+    this.dialog.open(AddComponent, this);
   }
 
-  openEdit(item:any):void{
-    this.dialog.open(EditComponent,this, item);
+  openEdit(item: any): void {
+    this.dialog.open(EditComponent, this, item);
   }
 
-  openDel(item:any):void{
-    this.dialog.open(DeleteComponent,this, item, 280, 700);
+  openDel(item: any): void {
+    this.dialog.open(DeleteComponent, this, item, 280, 700);
   }
-
-
 }

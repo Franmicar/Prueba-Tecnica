@@ -1,0 +1,11 @@
+{
+  "home": {
+    "language": "Idioma",
+    "dark-mode": "Modo oscuro",
+    "title": "Organigrama",
+    "section": "Sección",
+    "todo": "Tareas",
+    "add-toDo": "Añadir tarea",
+    "todo-table": "Tabla de tareas"
+  }
+}
