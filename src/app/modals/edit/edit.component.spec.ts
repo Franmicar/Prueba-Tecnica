@@ -11,7 +11,7 @@ import { TareaService } from '../../services/tarea.service';
 import { DialogService } from '../../services/dialog.service';
 import { SnackBarService } from '../../services/snack-bar.service';
 import { Tarea } from '../../models/Tarea';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 const tareas: Tarea[] = [
   {
@@ -37,6 +37,15 @@ const item: Tarea = {
   titulo:'ghfh3454312ghgfh'
 }
 
+const editForm = new FormGroup({
+  titulo: new FormControl('asdasd', [
+    Validators.required,
+    Validators.minLength(1),
+    Validators.maxLength(30),
+  ]),
+  descripcion: new FormControl('aiasodjasiodjiosa', Validators.maxLength(100))
+})
+
 const tareaServiceMock = {
   firebase: {
     collection: () => of(tareas)
@@ -46,11 +55,14 @@ const tareaServiceMock = {
 const dialogRefStub = {
   afterClosed() {
     return of(true);
+  },
+  data: {
+    item: item
   }
 };
 const dialogStub = { open: (component, data) => dialogRefStub };
 
-fdescribe("EditComponent", () => {
+describe("EditComponent", () => {
   let component: EditComponent;
   let fixture: ComponentFixture<EditComponent>;
   let de: DebugElement;
@@ -61,7 +73,7 @@ fdescribe("EditComponent", () => {
         //AngularFireModule.initializeApp(environment.firebaseConfig),
         MatDialogModule,
         MatSnackBarModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
         ],
       declarations:[EditComponent],
       providers:[
@@ -80,8 +92,12 @@ fdescribe("EditComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditComponent);
     component = fixture.componentInstance;
+    component.tarea = tareas[0];
     fixture.detectChanges();
   });
+
+  beforeAll(() => {
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();
